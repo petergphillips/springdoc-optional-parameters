@@ -1,0 +1,2 @@
+springdoc:
+  nullable-request-parameter-enabled: true
