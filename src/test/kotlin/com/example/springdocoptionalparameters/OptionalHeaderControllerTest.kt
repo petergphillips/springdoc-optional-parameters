@@ -9,7 +9,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.boot.test.web.server.LocalServerPort
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-class ExampleControllerTest(
+class OptionalHeaderControllerTest(
   @LocalServerPort val port: Int,
   @Autowired val restTemplate: TestRestTemplate,
 ) {
@@ -19,6 +19,6 @@ class ExampleControllerTest(
       "http://localhost:$port/v3/api-docs",
       OpenAPI::class.java
     )
-    assert(result.paths["/"]!!.get.parameters.single().required == false)
+    assert(result.paths["/header"]!!.get.parameters.single().required == false)
   }
 }
